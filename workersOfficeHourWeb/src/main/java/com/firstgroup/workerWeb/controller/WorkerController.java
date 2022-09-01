@@ -40,13 +40,10 @@ public class WorkerController {
 			if (result == 1) {
 				
 				RA.addFlashAttribute("msg", "회원 가입을 축하드립니다");
-				System.out.println("회원 가입을 축하드립니다");
-				
 				return "redirect:login"; // msg와 함께 로그인 페이지로 전송
 			} else {
 				
 				RA.addFlashAttribute("msg", "회원 가입에 실패했습니다");
-				System.out.println("회원 가입에 실패했습니다");
 				return "redirect:login"; // msg와 함께 로그인 페이지로 전송
 			}
 		}

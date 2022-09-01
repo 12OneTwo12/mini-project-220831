@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.firstgroup.workerWeb.command.WorkerVO;
@@ -25,11 +26,9 @@ public class OfficeHourController {
 	}
 	
 	@RequestMapping("/work_start")
-	public String work_start(WorkerVO workerVO, RedirectAttributes RA, HttpSession session) {
+	public String work_start(RedirectAttributes RA, HttpSession session) {
 		
 		WorkerVO vo = (WorkerVO)session.getAttribute("sessionVO");
-		
-		System.out.println(vo+"나 vo");
 		
 		int result = workerService.workStart(vo);
 		

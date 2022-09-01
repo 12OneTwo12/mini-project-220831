@@ -23,15 +23,15 @@
   	</insert>
   	
   	<select id="checkStart" resultType="int">
-  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('#{today}','%')
+  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('DATE(NOW())','%')
   	</select>
   	
   	<update id="workEnd">
-  		UPDATE office_hour SET work_end = NOW() WHERE work_start LIKE concat('#{today}','%') and worker_number = #{worker_number}
+  		UPDATE office_hour SET work_end = NOW() WHERE work_start LIKE concat('DATE(NOW())','%') and worker_number = #{worker_number}
   	</update>
   	
   	<select id="checkEnd" resultType="int">
-  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('#{today}','%')
+  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('DATE(NOW())','%')
   	</select>
   	
  </mapper>

@@ -24,12 +24,12 @@ public class WorkerServiceImpl implements WorkerService{
 	@Override
 	public WorkerVO login(WorkerVO workerVO) {
 		
+		
 		return workerMapper.login(workerVO);
 	}
 
 	@Override
 	public int checkId(String worker_id) {
-		
 		return workerMapper.checkId(worker_id);
 	}
 
@@ -38,8 +38,7 @@ public class WorkerServiceImpl implements WorkerService{
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");        
 		Date now = new Date();         
 		String today = sdf1.format(now);
-		
-		if(workerMapper.checkStart(workerVO, today) == 0) {
+		if(workerMapper.checkStart(workerVO) == 0) {
 			return workerMapper.workStart(workerVO);
 		} else {
 			return 0;
@@ -53,8 +52,8 @@ public class WorkerServiceImpl implements WorkerService{
         Date now = new Date();         
         String today = sdf1.format(now);
         
-        if(workerMapper.checkEnd(workerVO, today) == 0) {
-        	return workerMapper.workEnd(workerVO, today);
+        if(workerMapper.checkEnd(workerVO) == 0) {
+        	return workerMapper.workEnd(workerVO);
         } else {
         	return 0;
         }
