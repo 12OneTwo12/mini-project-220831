@@ -28,6 +28,6 @@
 		<property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
 	</bean>	
 	
-	<mybatis-spring:scan base-package="com.coding404.*"/>
+	<mybatis-spring:scan base-package="com.firstgroup.*"/>
 	
 </beans>

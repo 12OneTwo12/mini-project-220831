@@ -5,6 +5,17 @@
   
  <mapper namespace="com.firstgroup.workerWeb.worker.mapper.WorkerMapper">
   
-
+	<insert id="signUp">
+		INSERT INTO workers (worker_id, worker_password, name, career, gender) 
+		VALUES (#{worker_id},#{worker_password},#{name},#{career},#{gender})
+	</insert>
+  	
+  	<select id="login" resultType="WorkerVO">
+  		SELECT * FROM workers WHERE worker_id = #{worker_id} AND worker_password = #{worker_password}
+  	</select>
+  	
+  	<select id="checkId" resultType="int">
+  		SELECT count(*) FROM workers WHERE worker_id = #{worker_id}
+  	</select>
   	
  </mapper>

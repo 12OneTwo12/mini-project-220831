@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OfiiceHourVO {
+public class OfficeHourVO {
 
 	int office_hour_id;
 	int worker_number;
