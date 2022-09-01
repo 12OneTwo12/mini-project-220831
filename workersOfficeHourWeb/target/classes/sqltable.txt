@@ -1,4 +1,4 @@
-create database spring default character set utf8;
+create database workersOfiiceHour default character set utf8;
 create user 'workersOfiiceHour' identified by 'workersOfiiceHour';
 grant all privileges on workersOfiiceHour.* to 'workersOfiiceHour';
 
