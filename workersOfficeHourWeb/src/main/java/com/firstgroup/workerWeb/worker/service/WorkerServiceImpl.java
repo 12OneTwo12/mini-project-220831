@@ -1,5 +1,8 @@
 package com.firstgroup.workerWeb.worker.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +33,33 @@ public class WorkerServiceImpl implements WorkerService{
 		return workerMapper.checkId(worker_id);
 	}
 
+	@Override
+	public int workStart(WorkerVO workerVO) {
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");        
+		Date now = new Date();         
+		String today = sdf1.format(now);
+		
+		if(workerMapper.checkStart(workerVO, today) == 0) {
+			return workerMapper.workStart(workerVO);
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public int workEnd(WorkerVO workerVO) {
+		
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");        
+        Date now = new Date();         
+        String today = sdf1.format(now);
+        
+        if(workerMapper.checkEnd(workerVO, today) == 0) {
+        	return workerMapper.workEnd(workerVO, today);
+        } else {
+        	return 0;
+        }
+		
+	}
+		
+	
 }

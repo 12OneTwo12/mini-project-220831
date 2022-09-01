@@ -18,4 +18,20 @@
   		SELECT count(*) FROM workers WHERE worker_id = #{worker_id}
   	</select>
   	
+  	<insert id="workStart">
+  		INSERT INTO office_hour (worker_number) values (#{worker_number})
+  	</insert>
+  	
+  	<select id="checkStart" resultType="int">
+  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('#{today}','%')
+  	</select>
+  	
+  	<update id="workEnd">
+  		UPDATE office_hour SET work_end = NOW() WHERE work_start LIKE concat('#{today}','%') and worker_number = #{worker_number}
+  	</update>
+  	
+  	<select id="checkEnd" resultType="int">
+  		SELECT count(*) FROM office_hour WHERE worker_number = #{worker_number} AND work_start LIKE concat('#{today}','%')
+  	</select>
+  	
  </mapper>
