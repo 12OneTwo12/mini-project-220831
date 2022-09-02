@@ -21,7 +21,7 @@
 				<input type="button" class="w-btn w-btn-red" value="외근">
 				</div>	
 				<div class="w2">
-				 <input type="button" class="w-btn w-btn-red" value="병가"> 
+				 <input type="button" class="w-btn w-btn-red" value="휴일 선택"> 
 				 <input type="button" class="w-btn w-btn-red" value="출근 기록 조회"> 
 				<input type="button" class="w-btn w-btn-red" value="본인 수당 조회"> 
 				</div>			
