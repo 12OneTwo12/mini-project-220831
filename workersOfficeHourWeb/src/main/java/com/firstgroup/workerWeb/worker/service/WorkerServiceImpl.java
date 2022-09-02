@@ -38,7 +38,10 @@ public class WorkerServiceImpl implements WorkerService{
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");        
 		Date now = new Date();         
 		String today = sdf1.format(now);
-		if(workerMapper.checkStart(workerVO) == 0) {
+		
+		System.out.println(today);
+		
+		if(workerMapper.checkStart(Integer.toString(workerVO.getWorker_number()), today) == 0) {
 			return workerMapper.workStart(workerVO);
 		} else {
 			return 0;
@@ -52,8 +55,9 @@ public class WorkerServiceImpl implements WorkerService{
         Date now = new Date();         
         String today = sdf1.format(now);
         
-        if(workerMapper.checkEnd(workerVO) == 0) {
-        	return workerMapper.workEnd(workerVO);
+        if(workerMapper.checkEnd(Integer.toString(workerVO.getWorker_number()), today) != 0 &&
+        	workerMapper.realCheckEnd(Integer.toString(workerVO.getWorker_number()), today) == 0) {
+        	return workerMapper.workEnd(Integer.toString(workerVO.getWorker_number()), today);
         } else {
         	return 0;
         }
