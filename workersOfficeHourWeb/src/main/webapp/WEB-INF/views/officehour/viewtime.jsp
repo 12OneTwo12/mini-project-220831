@@ -9,6 +9,9 @@
 	href="${pageContext.request.contextPath }/resources/css/viewmoney.css" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<header>
+<%@include file="header.jsp" %>
+</header>
 </head>
 <body>
 	<div class="wrap">

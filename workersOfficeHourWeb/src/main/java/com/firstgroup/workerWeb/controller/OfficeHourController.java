@@ -25,12 +25,38 @@ public class OfficeHourController {
 	@Qualifier("workerService")
 	WorkerService workerService;
 
+	/**
+	 * viewtime페이지로 이동할때 session에 VO값이 있는지 확인하는 메소드, 
+	 * session에 VO 값이 없으면 로그인 페이지로 이동함 페이지 접속시 session값 필수를 위해 사용 
+	 * @param session
+	 * @param RA alert로 브라우저에 띄울 메세지 값을 전달
+	 * @return session에 VO값이 있으면 viewtime페이지로 이동, 값이 없으면 login페이지로 이동
+	 */
 	@RequestMapping("/viewtime")
-	public void viewtime() {
+	public String viewtime(RedirectAttributes RA,HttpSession session) {
+		if (session.getAttribute("sessionVO") != null) {
+			return "officehour/viewtime";
+		} else {
+			RA.addFlashAttribute("msg", "로그인이 필요합니다");
+			return "redirect:/worker/login";
+		}
 	}
 
+	/**
+	 * viewmoney페이지로 이동할때 session에 VO값이 있는지 확인하는 메소드, 
+	 * session에 VO 값이 없으면 로그인 페이지로 이동함 페이지 접속시 session값 필수를 위해 사용
+	 * @param session
+	 * @param RA alert로 브라우저에 띄울 메세지 값을 전달
+	 * @return session에 VO값이 있으면 viewmoney페이지로 이동, 값이 없으면 login페이지로 이동
+	 */
 	@RequestMapping("/viewmoney")
-	public void viewmoney() {
+	public String viewmoney(RedirectAttributes RA, HttpSession session) {
+		if (session.getAttribute("sessionVO") != null) {
+			return "officehour/viewmoney";
+		} else {
+			RA.addFlashAttribute("msg", "로그인이 필요합니다");
+			return "redirect:/worker/login";
+		}
 	}
 
 	@RequestMapping("/sick")
@@ -50,13 +76,15 @@ public class OfficeHourController {
 	/**
 	 * homepage로 이동할때 session에 VO값이 있는지 확인하는 메소드, session에 VO 값이 없으면 로그인 페이지로 이동함 홈페이지 접속시 session값 필수를 위해 사용 
 	 * @param session
+	 * @param RA alert로 브라우저에 띄울 메세지 값을 전달
 	 * @return session에 VO값이 있으면 homepage로 이동, 값이 없으면 login페이지로 이동
 	 */
 	@RequestMapping("/homepage")
-	public String homepage(HttpSession session) {
+	public String homepage(RedirectAttributes RA, HttpSession session) {
 		if (session.getAttribute("sessionVO") != null) {
 			return "officehour/homepage";
 		} else {
+			RA.addFlashAttribute("msg", "로그인이 필요합니다");
 			return "redirect:/worker/login";
 		}
 	}
