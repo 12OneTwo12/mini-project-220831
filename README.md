@@ -112,3 +112,8 @@
     프로젝트를 순항하게 만드는 가장 큰 요인은 소통인 걸 생각하게 됐다.  
     ```
       
+* ### 동작 과정  
+
+  ![image url](https://github.com/12OneTwo12/webApplication-project-220831/blob/main/plan/ezgif.com-gif-maker%20(1).gif?raw=true)   
+  ![image url](https://github.com/12OneTwo12/webApplication-project-220831/blob/main/plan/ezgif.com-gif-maker%20(3).gif?raw=true)   
+  ![image url](https://github.com/12OneTwo12/webApplication-project-220831/blob/main/plan/ezgif.com-gif-maker%20(4).gif?raw=true)   
